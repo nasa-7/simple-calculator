@@ -14,15 +14,18 @@ def subtract(a, b):
 def multiply(a, b):
     return a * b
 
-
 def divide(a, b):
-    return a / b  # BUG: crashes when b is 0
+    if b == 0:
+        return "Error: cannot divide by zero"
+    return a / b
 
 def power(a, b):
     return a ** b
 
 
 def modulus(a, b):
+    if b == 0:
+        return "Error: cannot divide by zero"
     return a % b
 
 OPERATIONS = {"+": add, "-": subtract, "*": multiply, "/": divide, "**": power, "%": modulus}
