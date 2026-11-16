@@ -31,12 +31,29 @@ def modulus(a, b):
 OPERATIONS = {"+": add, "-": subtract, "*": multiply, "/": divide, "**": power, "%": modulus}
 
 
+
 def main():
-    print("Simple Calculator")
-    a = float(input("Enter first number: "))
-    op = input("Operation (+, -, *, /, **, %):")
-    b = float(input("Enter second number: "))
-    print("Result:", OPERATIONS[op](a, b))  # BUG: crashes on bad input
+    print("Simple Calculator (type 'q' to quit)")
+    while True:
+        op = input("Operation (+, -, *, /, **, %) or q: ").strip()
+        if op.lower() == "q":
+            print("Goodbye!")
+            break
+
+        if op not in OPERATIONS:
+            print("Invalid operation, try again.")
+            continue
+
+        try:
+            a = float(input("Enter first number: "))
+            b = float(input("Enter second number: "))
+        except ValueError:
+            print("Invalid number, try again.")
+            continue
+
+        print("Result:", OPERATIONS[op](a, b))
+
+
 
 
 if __name__ == "__main__":
