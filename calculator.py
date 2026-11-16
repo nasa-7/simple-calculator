@@ -18,14 +18,20 @@ def multiply(a, b):
 def divide(a, b):
     return a / b  # BUG: crashes when b is 0
 
+def power(a, b):
+    return a ** b
 
-OPERATIONS = {"+": add, "-": subtract, "*": multiply, "/": divide}
+
+def modulus(a, b):
+    return a % b
+
+OPERATIONS = {"+": add, "-": subtract, "*": multiply, "/": divide, "**": power, "%": modulus}
 
 
 def main():
     print("Simple Calculator")
     a = float(input("Enter first number: "))
-    op = input("Operation (+, -, *, /): ")
+    op = input("Operation (+, -, *, /, **, %):")
     b = float(input("Enter second number: "))
     print("Result:", OPERATIONS[op](a, b))  # BUG: crashes on bad input
 
